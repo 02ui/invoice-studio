@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invoice Studio</title>
+  <!-- Invoice fonts: Geist Mono, Libre Baskerville, Libre Barcode 39 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&family=Libre+Barcode+39&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <!-- styles.css = the builder / app interface -->
+  <link rel="stylesheet" href="styles.css" />
+  <!-- invoice.css = ONLY the invoice design. Edit this file to restyle the invoice. -->
+  <link rel="stylesheet" href="invoice.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <span class="brand-name">Invoice Studio</span>
+      </div>
+
+      <button class="btn btn-primary btn-block" data-action="new-invoice">
+        <span class="plus">+</span> New invoice
+      </button>
+
+      <nav class="nav">
+        <button class="nav-item" data-route="dashboard">Dashboard</button>
+        <button class="nav-item" data-route="invoices">Invoices</button>
+        <button class="nav-item" data-route="clients">Clients</button>
+        <button class="nav-item" data-route="services">Services</button>
+        <button class="nav-item" data-route="expenses">Expenses</button>
+        <button class="nav-item" data-route="savings">Savings</button>
+        <button class="nav-item" data-route="settings">Settings</button>
+      </nav>
+
+      <div class="sidebar-foot">
+        <p class="muted small">Saved on this device only.</p>
+        <button class="link-btn" data-action="backup">Back up my data</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div id="view"></div>
+    </main>
+  </div>
+
+  <!-- The invoice is rendered in here only when printing / saving to PDF -->
+  <div id="print-root"></div>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="invoice-template.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
